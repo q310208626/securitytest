@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    name: mysql
+    url: jdbc:mysql://127.0.0.1:3306/spring_security
+    username: mysql
+    password: mysql
+    driver-class-name: com.mysql.jdbc.Driver
+
+

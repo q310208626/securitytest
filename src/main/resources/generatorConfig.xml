@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="db.properties"></properties>
+    <context id="my" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="false" />
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!-- 数据库连接信息 -->
+        <jdbcConnection driverClass="${driverClass}"
+                        connectionURL="${dbUrl}" userId="${username}"
+                        password="${password}" />
+
+        <!-- java数据类型与数据库类型映射,非必须 -->
+        <javaTypeResolver>
+            <property name="" value=""/>
+        </javaTypeResolver>
+
+        <!-- model生成路径 bean-->
+        <javaModelGenerator targetPackage="${beanpack}"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- 映射xml文件生成路径 -->
+        <sqlMapGenerator targetPackage="${mapperpack}"
+                         targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!--
+            type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象
+            type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
+            type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
+         -->
+        <javaClientGenerator targetPackage="${daopack}"
+                             targetProject="src/main/java" type="ANNOTATEDMAPPER">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!-- 目标表，如果有多个表就将此段拷贝分别配置，禁止生成Example,前期以熟练mybatis为主 -->
+        <!-- 选择哪个table自动生成bean.dao.mapper 可进行以下设置 -->
+        <table tableName="user" domainObjectName="UserBean"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="true"
+               selectByExampleQueryId="false">
+        </table>
+    </context>
+</generatorConfiguration>
