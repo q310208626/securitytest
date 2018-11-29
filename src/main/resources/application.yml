@@ -1,6 +1,7 @@
 server:
   port: 8080
-
+  servlet:
+    context-path: /secureTest
 spring:
   datasource:
     name: mysql
@@ -8,5 +9,15 @@ spring:
     username: mysql
     password: mysql
     driver-class-name: com.mysql.jdbc.Driver
-
+#  mvc:
+#    view:
+#      prefix: classpath:/static/views
+#      suffix: .html
+  thymeleaf:
+    servlet:
+      content-type: text/html
+    cache: false
+    mode: LEGACYHTML5
+    prefix: classpath:/static/views/
+    suffix: .html
 

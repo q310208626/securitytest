@@ -31,7 +31,7 @@ public class Test {
     }
 
     @org.junit.Test
-    public void MapperExampletest(){
+    public void test(){
         UserBeanExample userBeanExample = new UserBeanExample();
         UserBeanExample.Criteria criteria =userBeanExample.createCriteria();
         criteria.andUserNameLike("cust");
