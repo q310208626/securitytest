@@ -17,8 +17,18 @@ public class UserController {
         return "login";
     }
 
+    @RequestMapping(value = "/doLogin.do")
+    public void doLogin(String username,String password){
+
+    }
+
     @RequestMapping(value = "/home")
     public String home(){
         return "home";
+    }
+
+    @RequestMapping(value = "/")
+    public String defaults(){
+        return "index";
     }
 }
